@@ -1,0 +1,76 @@
+module Scrapegraphai
+  module Models
+    type completed_search_scraper =
+      {
+        error: String?,
+        num_results: Integer,
+        reference_urls: ::Array[String],
+        request_id: String,
+        result: top,
+        status: Scrapegraphai::Models::CompletedSearchScraper::status,
+        user_prompt: String
+      }
+
+    class CompletedSearchScraper < Scrapegraphai::Internal::Type::BaseModel
+      attr_accessor error: String?
+
+      attr_reader num_results: Integer?
+
+      def num_results=: (Integer) -> Integer
+
+      attr_reader reference_urls: ::Array[String]?
+
+      def reference_urls=: (::Array[String]) -> ::Array[String]
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> String
+
+      attr_reader result: top?
+
+      def result=: (top) -> top
+
+      attr_reader status: Scrapegraphai::Models::CompletedSearchScraper::status?
+
+      def status=: (
+        Scrapegraphai::Models::CompletedSearchScraper::status
+      ) -> Scrapegraphai::Models::CompletedSearchScraper::status
+
+      attr_reader user_prompt: String?
+
+      def user_prompt=: (String) -> String
+
+      def initialize: (
+        ?error: String?,
+        ?num_results: Integer,
+        ?reference_urls: ::Array[String],
+        ?request_id: String,
+        ?result: top,
+        ?status: Scrapegraphai::Models::CompletedSearchScraper::status,
+        ?user_prompt: String
+      ) -> void
+
+      def to_hash: -> {
+        error: String?,
+        num_results: Integer,
+        reference_urls: ::Array[String],
+        request_id: String,
+        result: top,
+        status: Scrapegraphai::Models::CompletedSearchScraper::status,
+        user_prompt: String
+      }
+
+      type status = :queued | :processing | :completed
+
+      module Status
+        extend Scrapegraphai::Internal::Type::Enum
+
+        QUEUED: :queued
+        PROCESSING: :processing
+        COMPLETED: :completed
+
+        def self?.values: -> ::Array[Scrapegraphai::Models::CompletedSearchScraper::status]
+      end
+    end
+  end
+end

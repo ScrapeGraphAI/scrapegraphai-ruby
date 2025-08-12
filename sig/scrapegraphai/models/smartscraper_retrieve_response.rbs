@@ -1,0 +1,12 @@
+module Scrapegraphai
+  module Models
+    type smartscraper_retrieve_response =
+      Scrapegraphai::CompletedSmartscraper | Scrapegraphai::FailedSmartscraper
+
+    module SmartscraperRetrieveResponse
+      extend Scrapegraphai::Internal::Type::Union
+
+      def self?.variants: -> ::Array[Scrapegraphai::Models::smartscraper_retrieve_response]
+    end
+  end
+end

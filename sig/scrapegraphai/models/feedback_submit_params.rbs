@@ -1,0 +1,32 @@
+module Scrapegraphai
+  module Models
+    type feedback_submit_params =
+      { rating: Integer, request_id: String, feedback_text: String? }
+      & Scrapegraphai::Internal::Type::request_parameters
+
+    class FeedbackSubmitParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      attr_accessor rating: Integer
+
+      attr_accessor request_id: String
+
+      attr_accessor feedback_text: String?
+
+      def initialize: (
+        rating: Integer,
+        request_id: String,
+        ?feedback_text: String?,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        rating: Integer,
+        request_id: String,
+        feedback_text: String?,
+        request_options: Scrapegraphai::RequestOptions
+      }
+    end
+  end
+end

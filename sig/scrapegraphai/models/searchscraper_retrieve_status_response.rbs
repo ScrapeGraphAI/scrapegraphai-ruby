@@ -1,0 +1,84 @@
+module Scrapegraphai
+  module Models
+    type searchscraper_retrieve_status_response =
+      Scrapegraphai::CompletedSearchScraper
+      | Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse
+
+    module SearchscraperRetrieveStatusResponse
+      extend Scrapegraphai::Internal::Type::Union
+
+      type failed_search_scraper_response =
+        {
+          error: String,
+          num_results: Integer,
+          reference_urls: ::Array[String],
+          request_id: String,
+          result: top?,
+          status: Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status,
+          user_prompt: String
+        }
+
+      class FailedSearchScraperResponse < Scrapegraphai::Internal::Type::BaseModel
+        attr_reader error: String?
+
+        def error=: (String) -> String
+
+        attr_reader num_results: Integer?
+
+        def num_results=: (Integer) -> Integer
+
+        attr_reader reference_urls: ::Array[String]?
+
+        def reference_urls=: (::Array[String]) -> ::Array[String]
+
+        attr_reader request_id: String?
+
+        def request_id=: (String) -> String
+
+        attr_accessor result: top?
+
+        attr_reader status: Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status?
+
+        def status=: (
+          Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status
+        ) -> Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status
+
+        attr_reader user_prompt: String?
+
+        def user_prompt=: (String) -> String
+
+        def initialize: (
+          ?error: String,
+          ?num_results: Integer,
+          ?reference_urls: ::Array[String],
+          ?request_id: String,
+          ?result: top?,
+          ?status: Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status,
+          ?user_prompt: String
+        ) -> void
+
+        def to_hash: -> {
+          error: String,
+          num_results: Integer,
+          reference_urls: ::Array[String],
+          request_id: String,
+          result: top?,
+          status: Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status,
+          user_prompt: String
+        }
+
+        type status = :failed
+
+        module Status
+          extend Scrapegraphai::Internal::Type::Enum
+
+          FAILED: :failed
+
+          def self?.values: -> ::Array[Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse::status]
+        end
+      end
+
+      def self?.variants: -> ::Array[Scrapegraphai::Models::searchscraper_retrieve_status_response]
+    end
+  end
+end

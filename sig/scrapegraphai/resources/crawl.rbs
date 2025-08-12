@@ -1,0 +1,25 @@
+module Scrapegraphai
+  module Resources
+    class Crawl
+      def retrieve_results: (
+        String task_id,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::CrawlRetrieveResultsResponse
+
+      def start: (
+        url: String,
+        ?depth: Integer,
+        ?extraction_mode: bool,
+        ?max_pages: Integer,
+        ?prompt: String?,
+        ?render_heavy_js: bool,
+        ?rules: Scrapegraphai::CrawlStartParams::Rules,
+        ?schema: top?,
+        ?sitemap: bool,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::CrawlStartResponse
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

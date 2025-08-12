@@ -1,0 +1,62 @@
+module Scrapegraphai
+  module Models
+    type completed_markdownify =
+      {
+        error: String,
+        request_id: String,
+        result: String?,
+        status: Scrapegraphai::Models::CompletedMarkdownify::status,
+        website_url: String
+      }
+
+    class CompletedMarkdownify < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader error: String?
+
+      def error=: (String) -> String
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> String
+
+      attr_accessor result: String?
+
+      attr_reader status: Scrapegraphai::Models::CompletedMarkdownify::status?
+
+      def status=: (
+        Scrapegraphai::Models::CompletedMarkdownify::status
+      ) -> Scrapegraphai::Models::CompletedMarkdownify::status
+
+      attr_reader website_url: String?
+
+      def website_url=: (String) -> String
+
+      def initialize: (
+        ?error: String,
+        ?request_id: String,
+        ?result: String?,
+        ?status: Scrapegraphai::Models::CompletedMarkdownify::status,
+        ?website_url: String
+      ) -> void
+
+      def to_hash: -> {
+        error: String,
+        request_id: String,
+        result: String?,
+        status: Scrapegraphai::Models::CompletedMarkdownify::status,
+        website_url: String
+      }
+
+      type status = :queued | :processing | :completed
+
+      module Status
+        extend Scrapegraphai::Internal::Type::Enum
+
+        QUEUED: :queued
+        PROCESSING: :processing
+        COMPLETED: :completed
+
+        def self?.values: -> ::Array[Scrapegraphai::Models::CompletedMarkdownify::status]
+      end
+    end
+  end
+end

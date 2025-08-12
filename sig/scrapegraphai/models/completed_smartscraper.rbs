@@ -1,0 +1,67 @@
+module Scrapegraphai
+  module Models
+    type completed_smartscraper =
+      {
+        error: String,
+        request_id: String,
+        result: top?,
+        status: Scrapegraphai::Models::CompletedSmartscraper::status,
+        user_prompt: String,
+        website_url: String?
+      }
+
+    class CompletedSmartscraper < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader error: String?
+
+      def error=: (String) -> String
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> String
+
+      attr_accessor result: top?
+
+      attr_reader status: Scrapegraphai::Models::CompletedSmartscraper::status?
+
+      def status=: (
+        Scrapegraphai::Models::CompletedSmartscraper::status
+      ) -> Scrapegraphai::Models::CompletedSmartscraper::status
+
+      attr_reader user_prompt: String?
+
+      def user_prompt=: (String) -> String
+
+      attr_accessor website_url: String?
+
+      def initialize: (
+        ?error: String,
+        ?request_id: String,
+        ?result: top?,
+        ?status: Scrapegraphai::Models::CompletedSmartscraper::status,
+        ?user_prompt: String,
+        ?website_url: String?
+      ) -> void
+
+      def to_hash: -> {
+        error: String,
+        request_id: String,
+        result: top?,
+        status: Scrapegraphai::Models::CompletedSmartscraper::status,
+        user_prompt: String,
+        website_url: String?
+      }
+
+      type status = :queued | :processing | :completed
+
+      module Status
+        extend Scrapegraphai::Internal::Type::Enum
+
+        QUEUED: :queued
+        PROCESSING: :processing
+        COMPLETED: :completed
+
+        def self?.values: -> ::Array[Scrapegraphai::Models::CompletedSmartscraper::status]
+      end
+    end
+  end
+end

@@ -1,0 +1,48 @@
+module Scrapegraphai
+  class Client < Scrapegraphai::Internal::Transport::BaseClient
+    DEFAULT_MAX_RETRIES: 2
+
+    DEFAULT_TIMEOUT_IN_SECONDS: Float
+
+    DEFAULT_INITIAL_RETRY_DELAY: Float
+
+    DEFAULT_MAX_RETRY_DELAY: Float
+
+    ENVIRONMENTS: {
+      production: "https://api.scrapegraphai.com/v1",
+      :environment_1 => "http://localhost:8001/v1"
+    }
+
+    attr_reader api_key: String
+
+    attr_reader smartscraper: Scrapegraphai::Resources::Smartscraper
+
+    attr_reader markdownify: Scrapegraphai::Resources::Markdownify
+
+    attr_reader searchscraper: Scrapegraphai::Resources::Searchscraper
+
+    attr_reader generate_schema: Scrapegraphai::Resources::GenerateSchema
+
+    attr_reader crawl: Scrapegraphai::Resources::Crawl
+
+    attr_reader credits: Scrapegraphai::Resources::Credits
+
+    attr_reader validate: Scrapegraphai::Resources::Validate
+
+    attr_reader feedback: Scrapegraphai::Resources::Feedback
+
+    attr_reader healthz: Scrapegraphai::Resources::Healthz
+
+    private def auth_headers: -> ::Hash[String, String]
+
+    def initialize: (
+      ?api_key: String?,
+      ?environment: :production | :environment_1 | nil,
+      ?base_url: String?,
+      ?max_retries: Integer,
+      ?timeout: Float,
+      ?initial_retry_delay: Float,
+      ?max_retry_delay: Float
+    ) -> void
+  end
+end

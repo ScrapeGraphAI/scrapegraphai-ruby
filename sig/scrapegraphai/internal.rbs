@@ -1,0 +1,10 @@
+module Scrapegraphai
+  module Internal
+    extend Scrapegraphai::Internal::Util::SorbetRuntimeSupport
+
+    type file_input =
+      Pathname | StringIO | IO | String | Scrapegraphai::FilePart
+
+    OMIT: Object
+  end
+end

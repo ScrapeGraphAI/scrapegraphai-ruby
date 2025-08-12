@@ -1,0 +1,23 @@
+module Scrapegraphai
+  module Models
+    type healthz_check_response =
+      { services: ::Hash[Symbol, String], status: String }
+
+    class HealthzCheckResponse < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader services: ::Hash[Symbol, String]?
+
+      def services=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader status: String?
+
+      def status=: (String) -> String
+
+      def initialize: (
+        ?services: ::Hash[Symbol, String],
+        ?status: String
+      ) -> void
+
+      def to_hash: -> { services: ::Hash[Symbol, String], status: String }
+    end
+  end
+end

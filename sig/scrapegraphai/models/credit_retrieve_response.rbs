@@ -1,0 +1,26 @@
+module Scrapegraphai
+  module Models
+    type credit_retrieve_response =
+      { remaining_credits: Integer, total_credits_used: Integer }
+
+    class CreditRetrieveResponse < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader remaining_credits: Integer?
+
+      def remaining_credits=: (Integer) -> Integer
+
+      attr_reader total_credits_used: Integer?
+
+      def total_credits_used=: (Integer) -> Integer
+
+      def initialize: (
+        ?remaining_credits: Integer,
+        ?total_credits_used: Integer
+      ) -> void
+
+      def to_hash: -> {
+        remaining_credits: Integer,
+        total_credits_used: Integer
+      }
+    end
+  end
+end

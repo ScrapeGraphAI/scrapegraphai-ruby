@@ -1,0 +1,47 @@
+module Scrapegraphai
+  module Models
+    type searchscraper_create_params =
+      {
+        user_prompt: String,
+        headers: ::Hash[Symbol, String],
+        num_results: Integer,
+        output_schema: top
+      }
+      & Scrapegraphai::Internal::Type::request_parameters
+
+    class SearchscraperCreateParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      attr_accessor user_prompt: String
+
+      attr_reader headers: ::Hash[Symbol, String]?
+
+      def headers=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader num_results: Integer?
+
+      def num_results=: (Integer) -> Integer
+
+      attr_reader output_schema: top?
+
+      def output_schema=: (top) -> top
+
+      def initialize: (
+        user_prompt: String,
+        ?headers: ::Hash[Symbol, String],
+        ?num_results: Integer,
+        ?output_schema: top,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        user_prompt: String,
+        headers: ::Hash[Symbol, String],
+        num_results: Integer,
+        output_schema: top,
+        request_options: Scrapegraphai::RequestOptions
+      }
+    end
+  end
+end

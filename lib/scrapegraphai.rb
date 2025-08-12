@@ -1,0 +1,93 @@
+# frozen_string_literal: true
+
+# Standard libraries.
+# rubocop:disable Lint/RedundantRequireStatement
+require "English"
+require "cgi"
+require "date"
+require "erb"
+require "etc"
+require "json"
+require "net/http"
+require "pathname"
+require "rbconfig"
+require "securerandom"
+require "set"
+require "stringio"
+require "time"
+require "uri"
+# rubocop:enable Lint/RedundantRequireStatement
+
+# We already ship the preferred sorbet manifests in the package itself.
+# `tapioca` currently does not offer us a way to opt out of unnecessary compilation.
+if Object.const_defined?(:Tapioca) &&
+   caller.chain([$PROGRAM_NAME]).chain(ARGV).any?(/tapioca/) &&
+   ARGV.none?(/dsl/)
+  return
+end
+
+# Gems.
+require "connection_pool"
+
+# Package files.
+require_relative "scrapegraphai/version"
+require_relative "scrapegraphai/internal/util"
+require_relative "scrapegraphai/internal/type/converter"
+require_relative "scrapegraphai/internal/type/unknown"
+require_relative "scrapegraphai/internal/type/boolean"
+require_relative "scrapegraphai/internal/type/file_input"
+require_relative "scrapegraphai/internal/type/enum"
+require_relative "scrapegraphai/internal/type/union"
+require_relative "scrapegraphai/internal/type/array_of"
+require_relative "scrapegraphai/internal/type/hash_of"
+require_relative "scrapegraphai/internal/type/base_model"
+require_relative "scrapegraphai/internal/type/base_page"
+require_relative "scrapegraphai/internal/type/request_parameters"
+require_relative "scrapegraphai/internal"
+require_relative "scrapegraphai/request_options"
+require_relative "scrapegraphai/file_part"
+require_relative "scrapegraphai/errors"
+require_relative "scrapegraphai/internal/transport/base_client"
+require_relative "scrapegraphai/internal/transport/pooled_net_requester"
+require_relative "scrapegraphai/client"
+require_relative "scrapegraphai/models/completed_markdownify"
+require_relative "scrapegraphai/models/completed_search_scraper"
+require_relative "scrapegraphai/models/completed_smartscraper"
+require_relative "scrapegraphai/models/crawl_retrieve_results_params"
+require_relative "scrapegraphai/models/crawl_retrieve_results_response"
+require_relative "scrapegraphai/models/crawl_start_params"
+require_relative "scrapegraphai/models/crawl_start_response"
+require_relative "scrapegraphai/models/credit_retrieve_params"
+require_relative "scrapegraphai/models/credit_retrieve_response"
+require_relative "scrapegraphai/models/failed_smartscraper"
+require_relative "scrapegraphai/models/feedback_submit_params"
+require_relative "scrapegraphai/models/feedback_submit_response"
+require_relative "scrapegraphai/models/generate_schema_create_params"
+require_relative "scrapegraphai/models/generate_schema_create_response"
+require_relative "scrapegraphai/models/generate_schema_retrieve_params"
+require_relative "scrapegraphai/models/generate_schema_retrieve_response"
+require_relative "scrapegraphai/models/healthz_check_params"
+require_relative "scrapegraphai/models/healthz_check_response"
+require_relative "scrapegraphai/models/markdownify_convert_params"
+require_relative "scrapegraphai/models/markdownify_retrieve_status_params"
+require_relative "scrapegraphai/models/markdownify_retrieve_status_response"
+require_relative "scrapegraphai/models/searchscraper_create_params"
+require_relative "scrapegraphai/models/searchscraper_retrieve_status_params"
+require_relative "scrapegraphai/models/searchscraper_retrieve_status_response"
+require_relative "scrapegraphai/models/smartscraper_create_params"
+require_relative "scrapegraphai/models/smartscraper_list_params"
+require_relative "scrapegraphai/models/smartscraper_list_response"
+require_relative "scrapegraphai/models/smartscraper_retrieve_params"
+require_relative "scrapegraphai/models/smartscraper_retrieve_response"
+require_relative "scrapegraphai/models/validate_api_key_params"
+require_relative "scrapegraphai/models/validate_api_key_response"
+require_relative "scrapegraphai/models"
+require_relative "scrapegraphai/resources/crawl"
+require_relative "scrapegraphai/resources/credits"
+require_relative "scrapegraphai/resources/feedback"
+require_relative "scrapegraphai/resources/generate_schema"
+require_relative "scrapegraphai/resources/healthz"
+require_relative "scrapegraphai/resources/markdownify"
+require_relative "scrapegraphai/resources/searchscraper"
+require_relative "scrapegraphai/resources/smartscraper"
+require_relative "scrapegraphai/resources/validate"

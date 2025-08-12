@@ -1,0 +1,18 @@
+module Scrapegraphai
+  module Resources
+    class GenerateSchema
+      def create: (
+        user_prompt: String,
+        ?existing_schema: top?,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::GenerateSchemaCreateResponse
+
+      def retrieve: (
+        String request_id,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::generate_schema_retrieve_response
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end
