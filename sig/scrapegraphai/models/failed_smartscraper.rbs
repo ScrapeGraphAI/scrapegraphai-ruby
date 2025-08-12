@@ -1,0 +1,65 @@
+module Scrapegraphai
+  module Models
+    type failed_smartscraper =
+      {
+        error: String,
+        request_id: String,
+        result: top?,
+        status: Scrapegraphai::Models::FailedSmartscraper::status,
+        user_prompt: String,
+        website_url: String?
+      }
+
+    class FailedSmartscraper < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader error: String?
+
+      def error=: (String) -> String
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> String
+
+      attr_accessor result: top?
+
+      attr_reader status: Scrapegraphai::Models::FailedSmartscraper::status?
+
+      def status=: (
+        Scrapegraphai::Models::FailedSmartscraper::status
+      ) -> Scrapegraphai::Models::FailedSmartscraper::status
+
+      attr_reader user_prompt: String?
+
+      def user_prompt=: (String) -> String
+
+      attr_accessor website_url: String?
+
+      def initialize: (
+        ?error: String,
+        ?request_id: String,
+        ?result: top?,
+        ?status: Scrapegraphai::Models::FailedSmartscraper::status,
+        ?user_prompt: String,
+        ?website_url: String?
+      ) -> void
+
+      def to_hash: -> {
+        error: String,
+        request_id: String,
+        result: top?,
+        status: Scrapegraphai::Models::FailedSmartscraper::status,
+        user_prompt: String,
+        website_url: String?
+      }
+
+      type status = :failed
+
+      module Status
+        extend Scrapegraphai::Internal::Type::Enum
+
+        FAILED: :failed
+
+        def self?.values: -> ::Array[Scrapegraphai::Models::FailedSmartscraper::status]
+      end
+    end
+  end
+end

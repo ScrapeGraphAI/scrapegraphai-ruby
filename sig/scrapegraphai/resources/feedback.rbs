@@ -1,0 +1,14 @@
+module Scrapegraphai
+  module Resources
+    class Feedback
+      def submit: (
+        rating: Integer,
+        request_id: String,
+        ?feedback_text: String?,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::FeedbackSubmitResponse
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

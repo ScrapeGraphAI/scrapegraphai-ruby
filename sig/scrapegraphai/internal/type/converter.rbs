@@ -1,0 +1,79 @@
+module Scrapegraphai
+  module Internal
+    module Type
+      module Converter
+        extend Scrapegraphai::Internal::Util::SorbetRuntimeSupport
+
+        type input = Scrapegraphai::Internal::Type::Converter | Class
+
+        type coerce_state =
+          {
+            translate_names: bool,
+            strictness: bool,
+            exactness: { yes: Integer, no: Integer, maybe: Integer },
+            error: Class,
+            branched: Integer
+          }
+
+        type dump_state = { can_retry: bool }
+
+        def coerce: (
+          top value,
+          state: Scrapegraphai::Internal::Type::Converter::coerce_state
+        ) -> top
+
+        def dump: (
+          top value,
+          state: Scrapegraphai::Internal::Type::Converter::dump_state
+        ) -> top
+
+        def inspect: (?depth: Integer) -> String
+
+        def self.type_info: (
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> Scrapegraphai::Internal::Type::Converter::input?,
+            union: ^-> Scrapegraphai::Internal::Type::Converter::input?
+          }
+          | ^-> Scrapegraphai::Internal::Type::Converter::input
+          | Scrapegraphai::Internal::Type::Converter::input spec
+        ) -> (^-> top)
+
+        def self.meta_info: (
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> Scrapegraphai::Internal::Type::Converter::input?,
+            union: ^-> Scrapegraphai::Internal::Type::Converter::input?
+          }
+          | ^-> Scrapegraphai::Internal::Type::Converter::input
+          | Scrapegraphai::Internal::Type::Converter::input type_info,
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> Scrapegraphai::Internal::Type::Converter::input?,
+            union: ^-> Scrapegraphai::Internal::Type::Converter::input?
+          }
+          | ^-> Scrapegraphai::Internal::Type::Converter::input
+          | Scrapegraphai::Internal::Type::Converter::input spec
+        ) -> ::Hash[Symbol, top]
+
+        def self.new_coerce_state: (
+          ?translate_names: bool
+        ) -> Scrapegraphai::Internal::Type::Converter::coerce_state
+
+        def self.coerce: (
+          Scrapegraphai::Internal::Type::Converter::input target,
+          top value,
+          ?state: Scrapegraphai::Internal::Type::Converter::coerce_state
+        ) -> top
+
+        def self.dump: (
+          Scrapegraphai::Internal::Type::Converter::input target,
+          top value,
+          ?state: Scrapegraphai::Internal::Type::Converter::dump_state
+        ) -> top
+
+        def self.inspect: (top target, depth: Integer) -> String
+      end
+    end
+  end
+end

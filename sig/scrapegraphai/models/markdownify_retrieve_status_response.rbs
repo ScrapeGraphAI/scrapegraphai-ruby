@@ -1,0 +1,70 @@
+module Scrapegraphai
+  module Models
+    type markdownify_retrieve_status_response =
+      Scrapegraphai::CompletedMarkdownify
+      | Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse
+
+    module MarkdownifyRetrieveStatusResponse
+      extend Scrapegraphai::Internal::Type::Union
+
+      type failed_markdownify_response =
+        {
+          error: String,
+          request_id: String,
+          result: String?,
+          status: Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status,
+          website_url: String
+        }
+
+      class FailedMarkdownifyResponse < Scrapegraphai::Internal::Type::BaseModel
+        attr_reader error: String?
+
+        def error=: (String) -> String
+
+        attr_reader request_id: String?
+
+        def request_id=: (String) -> String
+
+        attr_accessor result: String?
+
+        attr_reader status: Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status?
+
+        def status=: (
+          Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status
+        ) -> Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status
+
+        attr_reader website_url: String?
+
+        def website_url=: (String) -> String
+
+        def initialize: (
+          ?error: String,
+          ?request_id: String,
+          ?result: String?,
+          ?status: Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status,
+          ?website_url: String
+        ) -> void
+
+        def to_hash: -> {
+          error: String,
+          request_id: String,
+          result: String?,
+          status: Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status,
+          website_url: String
+        }
+
+        type status = :failed
+
+        module Status
+          extend Scrapegraphai::Internal::Type::Enum
+
+          FAILED: :failed
+
+          def self?.values: -> ::Array[Scrapegraphai::Models::MarkdownifyRetrieveStatusResponse::FailedMarkdownifyResponse::status]
+        end
+      end
+
+      def self?.variants: -> ::Array[Scrapegraphai::Models::markdownify_retrieve_status_response]
+    end
+  end
+end

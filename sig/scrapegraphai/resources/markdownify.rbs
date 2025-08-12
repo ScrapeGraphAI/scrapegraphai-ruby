@@ -1,0 +1,19 @@
+module Scrapegraphai
+  module Resources
+    class Markdownify
+      def convert: (
+        website_url: String,
+        ?headers: ::Hash[Symbol, String],
+        ?steps: ::Array[String],
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::CompletedMarkdownify
+
+      def retrieve_status: (
+        String request_id,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::markdownify_retrieve_status_response
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,15 @@
+module Scrapegraphai
+  module Models
+    type credit_retrieve_params =
+      {  } & Scrapegraphai::Internal::Type::request_parameters
+
+    class CreditRetrieveParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: Scrapegraphai::request_opts) -> void
+
+      def to_hash: -> { request_options: Scrapegraphai::RequestOptions }
+    end
+  end
+end

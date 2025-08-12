@@ -1,0 +1,11 @@
+module Scrapegraphai
+  module Resources
+    class Validate
+      def api_key: (
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::ValidateAPIKeyResponse
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

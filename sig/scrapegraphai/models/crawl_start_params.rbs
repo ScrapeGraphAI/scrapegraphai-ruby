@@ -1,0 +1,96 @@
+module Scrapegraphai
+  module Models
+    type crawl_start_params =
+      {
+        url: String,
+        depth: Integer,
+        extraction_mode: bool,
+        max_pages: Integer,
+        prompt: String?,
+        render_heavy_js: bool,
+        rules: Scrapegraphai::CrawlStartParams::Rules,
+        schema: top?,
+        sitemap: bool
+      }
+      & Scrapegraphai::Internal::Type::request_parameters
+
+    class CrawlStartParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      attr_accessor url: String
+
+      attr_reader depth: Integer?
+
+      def depth=: (Integer) -> Integer
+
+      attr_reader extraction_mode: bool?
+
+      def extraction_mode=: (bool) -> bool
+
+      attr_reader max_pages: Integer?
+
+      def max_pages=: (Integer) -> Integer
+
+      attr_accessor prompt: String?
+
+      attr_reader render_heavy_js: bool?
+
+      def render_heavy_js=: (bool) -> bool
+
+      attr_reader rules: Scrapegraphai::CrawlStartParams::Rules?
+
+      def rules=: (
+        Scrapegraphai::CrawlStartParams::Rules
+      ) -> Scrapegraphai::CrawlStartParams::Rules
+
+      attr_accessor schema: top?
+
+      attr_reader sitemap: bool?
+
+      def sitemap=: (bool) -> bool
+
+      def initialize: (
+        url: String,
+        ?depth: Integer,
+        ?extraction_mode: bool,
+        ?max_pages: Integer,
+        ?prompt: String?,
+        ?render_heavy_js: bool,
+        ?rules: Scrapegraphai::CrawlStartParams::Rules,
+        ?schema: top?,
+        ?sitemap: bool,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        url: String,
+        depth: Integer,
+        extraction_mode: bool,
+        max_pages: Integer,
+        prompt: String?,
+        render_heavy_js: bool,
+        rules: Scrapegraphai::CrawlStartParams::Rules,
+        schema: top?,
+        sitemap: bool,
+        request_options: Scrapegraphai::RequestOptions
+      }
+
+      type rules = { exclude: ::Array[String], same_domain: bool }
+
+      class Rules < Scrapegraphai::Internal::Type::BaseModel
+        attr_reader exclude: ::Array[String]?
+
+        def exclude=: (::Array[String]) -> ::Array[String]
+
+        attr_reader same_domain: bool?
+
+        def same_domain=: (bool) -> bool
+
+        def initialize: (?exclude: ::Array[String], ?same_domain: bool) -> void
+
+        def to_hash: -> { exclude: ::Array[String], same_domain: bool }
+      end
+    end
+  end
+end

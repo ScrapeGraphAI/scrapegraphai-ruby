@@ -1,0 +1,11 @@
+module Scrapegraphai
+  module Resources
+    class Credits
+      def retrieve: (
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::CreditRetrieveResponse
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

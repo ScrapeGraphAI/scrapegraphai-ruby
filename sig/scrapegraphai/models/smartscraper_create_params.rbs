@@ -1,0 +1,89 @@
+module Scrapegraphai
+  module Models
+    type smartscraper_create_params =
+      {
+        user_prompt: String,
+        cookies: ::Hash[Symbol, String],
+        headers: ::Hash[Symbol, String],
+        number_of_scrolls: Integer,
+        output_schema: top,
+        render_heavy_js: bool,
+        steps: ::Array[String],
+        total_pages: Integer,
+        website_html: String,
+        website_url: String
+      }
+      & Scrapegraphai::Internal::Type::request_parameters
+
+    class SmartscraperCreateParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      attr_accessor user_prompt: String
+
+      attr_reader cookies: ::Hash[Symbol, String]?
+
+      def cookies=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader headers: ::Hash[Symbol, String]?
+
+      def headers=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader number_of_scrolls: Integer?
+
+      def number_of_scrolls=: (Integer) -> Integer
+
+      attr_reader output_schema: top?
+
+      def output_schema=: (top) -> top
+
+      attr_reader render_heavy_js: bool?
+
+      def render_heavy_js=: (bool) -> bool
+
+      attr_reader steps: ::Array[String]?
+
+      def steps=: (::Array[String]) -> ::Array[String]
+
+      attr_reader total_pages: Integer?
+
+      def total_pages=: (Integer) -> Integer
+
+      attr_reader website_html: String?
+
+      def website_html=: (String) -> String
+
+      attr_reader website_url: String?
+
+      def website_url=: (String) -> String
+
+      def initialize: (
+        user_prompt: String,
+        ?cookies: ::Hash[Symbol, String],
+        ?headers: ::Hash[Symbol, String],
+        ?number_of_scrolls: Integer,
+        ?output_schema: top,
+        ?render_heavy_js: bool,
+        ?steps: ::Array[String],
+        ?total_pages: Integer,
+        ?website_html: String,
+        ?website_url: String,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        user_prompt: String,
+        cookies: ::Hash[Symbol, String],
+        headers: ::Hash[Symbol, String],
+        number_of_scrolls: Integer,
+        output_schema: top,
+        render_heavy_js: bool,
+        steps: ::Array[String],
+        total_pages: Integer,
+        website_html: String,
+        website_url: String,
+        request_options: Scrapegraphai::RequestOptions
+      }
+    end
+  end
+end

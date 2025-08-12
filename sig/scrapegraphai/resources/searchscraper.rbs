@@ -1,0 +1,20 @@
+module Scrapegraphai
+  module Resources
+    class Searchscraper
+      def create: (
+        user_prompt: String,
+        ?headers: ::Hash[Symbol, String],
+        ?num_results: Integer,
+        ?output_schema: top,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::CompletedSearchScraper
+
+      def retrieve_status: (
+        String request_id,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::searchscraper_retrieve_status_response
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

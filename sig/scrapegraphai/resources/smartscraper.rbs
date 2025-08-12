@@ -1,0 +1,30 @@
+module Scrapegraphai
+  module Resources
+    class Smartscraper
+      def create: (
+        user_prompt: String,
+        ?cookies: ::Hash[Symbol, String],
+        ?headers: ::Hash[Symbol, String],
+        ?number_of_scrolls: Integer,
+        ?output_schema: top,
+        ?render_heavy_js: bool,
+        ?steps: ::Array[String],
+        ?total_pages: Integer,
+        ?website_html: String,
+        ?website_url: String,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::CompletedSmartscraper
+
+      def retrieve: (
+        String request_id,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::smartscraper_retrieve_response
+
+      def list: (
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::smartscraper_list_response
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

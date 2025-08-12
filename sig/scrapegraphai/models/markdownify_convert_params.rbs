@@ -1,0 +1,40 @@
+module Scrapegraphai
+  module Models
+    type markdownify_convert_params =
+      {
+        website_url: String,
+        headers: ::Hash[Symbol, String],
+        steps: ::Array[String]
+      }
+      & Scrapegraphai::Internal::Type::request_parameters
+
+    class MarkdownifyConvertParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      attr_accessor website_url: String
+
+      attr_reader headers: ::Hash[Symbol, String]?
+
+      def headers=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader steps: ::Array[String]?
+
+      def steps=: (::Array[String]) -> ::Array[String]
+
+      def initialize: (
+        website_url: String,
+        ?headers: ::Hash[Symbol, String],
+        ?steps: ::Array[String],
+        ?request_options: Scrapegraphai::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        website_url: String,
+        headers: ::Hash[Symbol, String],
+        steps: ::Array[String],
+        request_options: Scrapegraphai::RequestOptions
+      }
+    end
+  end
+end

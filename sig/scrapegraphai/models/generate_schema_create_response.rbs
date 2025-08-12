@@ -1,0 +1,67 @@
+module Scrapegraphai
+  module Models
+    type generate_schema_create_response =
+      {
+        error: String?,
+        generated_schema: top,
+        refined_prompt: String,
+        request_id: String,
+        status: Scrapegraphai::Models::GenerateSchemaCreateResponse::status,
+        user_prompt: String
+      }
+
+    class GenerateSchemaCreateResponse < Scrapegraphai::Internal::Type::BaseModel
+      attr_accessor error: String?
+
+      attr_reader generated_schema: top?
+
+      def generated_schema=: (top) -> top
+
+      attr_reader refined_prompt: String?
+
+      def refined_prompt=: (String) -> String
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> String
+
+      attr_reader status: Scrapegraphai::Models::GenerateSchemaCreateResponse::status?
+
+      def status=: (
+        Scrapegraphai::Models::GenerateSchemaCreateResponse::status
+      ) -> Scrapegraphai::Models::GenerateSchemaCreateResponse::status
+
+      attr_reader user_prompt: String?
+
+      def user_prompt=: (String) -> String
+
+      def initialize: (
+        ?error: String?,
+        ?generated_schema: top,
+        ?refined_prompt: String,
+        ?request_id: String,
+        ?status: Scrapegraphai::Models::GenerateSchemaCreateResponse::status,
+        ?user_prompt: String
+      ) -> void
+
+      def to_hash: -> {
+        error: String?,
+        generated_schema: top,
+        refined_prompt: String,
+        request_id: String,
+        status: Scrapegraphai::Models::GenerateSchemaCreateResponse::status,
+        user_prompt: String
+      }
+
+      type status = :completed
+
+      module Status
+        extend Scrapegraphai::Internal::Type::Enum
+
+        COMPLETED: :completed
+
+        def self?.values: -> ::Array[Scrapegraphai::Models::GenerateSchemaCreateResponse::status]
+      end
+    end
+  end
+end

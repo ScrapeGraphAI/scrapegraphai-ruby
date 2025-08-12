@@ -1,0 +1,43 @@
+module Scrapegraphai
+  module Models
+    type feedback_submit_response =
+      {
+        feedback_id: String,
+        feedback_timestamp: Time,
+        message: String,
+        request_id: String
+      }
+
+    class FeedbackSubmitResponse < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader feedback_id: String?
+
+      def feedback_id=: (String) -> String
+
+      attr_reader feedback_timestamp: Time?
+
+      def feedback_timestamp=: (Time) -> Time
+
+      attr_reader message: String?
+
+      def message=: (String) -> String
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> String
+
+      def initialize: (
+        ?feedback_id: String,
+        ?feedback_timestamp: Time,
+        ?message: String,
+        ?request_id: String
+      ) -> void
+
+      def to_hash: -> {
+        feedback_id: String,
+        feedback_timestamp: Time,
+        message: String,
+        request_id: String
+      }
+    end
+  end
+end

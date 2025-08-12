@@ -1,0 +1,11 @@
+module Scrapegraphai
+  module Resources
+    class Healthz
+      def check: (
+        ?request_options: Scrapegraphai::request_opts
+      ) -> Scrapegraphai::Models::HealthzCheckResponse
+
+      def initialize: (client: Scrapegraphai::Client) -> void
+    end
+  end
+end

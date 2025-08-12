@@ -1,0 +1,15 @@
+module Scrapegraphai
+  module Models
+    type crawl_start_response = { task_id: String }
+
+    class CrawlStartResponse < Scrapegraphai::Internal::Type::BaseModel
+      attr_reader task_id: String?
+
+      def task_id=: (String) -> String
+
+      def initialize: (?task_id: String) -> void
+
+      def to_hash: -> { task_id: String }
+    end
+  end
+end

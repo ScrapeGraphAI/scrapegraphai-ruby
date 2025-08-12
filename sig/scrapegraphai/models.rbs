@@ -1,0 +1,39 @@
+module Scrapegraphai
+  class CompletedMarkdownify = Scrapegraphai::Models::CompletedMarkdownify
+
+  class CompletedSearchScraper = Scrapegraphai::Models::CompletedSearchScraper
+
+  class CompletedSmartscraper = Scrapegraphai::Models::CompletedSmartscraper
+
+  class CrawlRetrieveResultsParams = Scrapegraphai::Models::CrawlRetrieveResultsParams
+
+  class CrawlStartParams = Scrapegraphai::Models::CrawlStartParams
+
+  class CreditRetrieveParams = Scrapegraphai::Models::CreditRetrieveParams
+
+  class FailedSmartscraper = Scrapegraphai::Models::FailedSmartscraper
+
+  class FeedbackSubmitParams = Scrapegraphai::Models::FeedbackSubmitParams
+
+  class GenerateSchemaCreateParams = Scrapegraphai::Models::GenerateSchemaCreateParams
+
+  class GenerateSchemaRetrieveParams = Scrapegraphai::Models::GenerateSchemaRetrieveParams
+
+  class HealthzCheckParams = Scrapegraphai::Models::HealthzCheckParams
+
+  class MarkdownifyConvertParams = Scrapegraphai::Models::MarkdownifyConvertParams
+
+  class MarkdownifyRetrieveStatusParams = Scrapegraphai::Models::MarkdownifyRetrieveStatusParams
+
+  class SearchscraperCreateParams = Scrapegraphai::Models::SearchscraperCreateParams
+
+  class SearchscraperRetrieveStatusParams = Scrapegraphai::Models::SearchscraperRetrieveStatusParams
+
+  class SmartscraperCreateParams = Scrapegraphai::Models::SmartscraperCreateParams
+
+  class SmartscraperListParams = Scrapegraphai::Models::SmartscraperListParams
+
+  class SmartscraperRetrieveParams = Scrapegraphai::Models::SmartscraperRetrieveParams
+
+  class ValidateAPIKeyParams = Scrapegraphai::Models::ValidateAPIKeyParams
+end

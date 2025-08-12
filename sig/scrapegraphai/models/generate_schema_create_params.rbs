@@ -1,0 +1,28 @@
+module Scrapegraphai
+  module Models
+    type generate_schema_create_params =
+      { user_prompt: String, existing_schema: top? }
+      & Scrapegraphai::Internal::Type::request_parameters
+
+    class GenerateSchemaCreateParams < Scrapegraphai::Internal::Type::BaseModel
+      extend Scrapegraphai::Internal::Type::RequestParameters::Converter
+      include Scrapegraphai::Internal::Type::RequestParameters
+
+      attr_accessor user_prompt: String
+
+      attr_accessor existing_schema: top?
+
+      def initialize: (
+        user_prompt: String,
+        ?existing_schema: top?,
+        ?request_options: Scrapegraphai::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        user_prompt: String,
+        existing_schema: top?,
+        request_options: Scrapegraphai::RequestOptions
+      }
+    end
+  end
+end
