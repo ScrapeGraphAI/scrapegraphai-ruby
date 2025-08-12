@@ -43,13 +43,13 @@ If you’d like to use the repository from source, you can either install from g
 To install via git in your `Gemfile`:
 
 ```ruby
-gem "scrapegraphai", git: "https://www.github.com/stainless-sdks/scrapegraphai-ruby"
+gem "scrapegraphai", git: "https://www.github.com/ScrapeGraphAI/scrapegraphai-ruby"
 ```
 
 Alternatively, reference local copy of the repo:
 
 ```bash
-$ git clone -- 'https://www.github.com/stainless-sdks/scrapegraphai-ruby' '<path-to-repo>'
+$ git clone -- 'https://www.github.com/ScrapeGraphAI/scrapegraphai-ruby' '<path-to-repo>'
 ```
 
 ```ruby
