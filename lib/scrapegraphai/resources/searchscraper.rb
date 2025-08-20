@@ -37,7 +37,8 @@ module Scrapegraphai
       #
       # @overload retrieve_status(request_id, request_options: {})
       #
-      # @param request_id [String]
+      # @param request_id [String] Unique request identifier
+      #
       # @param request_options [Scrapegraphai::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Scrapegraphai::Models::CompletedSearchScraper, Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::FailedSearchScraperResponse]
