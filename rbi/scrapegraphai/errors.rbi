@@ -59,10 +59,10 @@ module Scrapegraphai
     end
 
     class APIConnectionError < Scrapegraphai::Errors::APIError
-      sig { void }
+      sig { returns(NilClass) }
       attr_accessor :status
 
-      sig { void }
+      sig { returns(NilClass) }
       attr_accessor :body
 
       # @api private
