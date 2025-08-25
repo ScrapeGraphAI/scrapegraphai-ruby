@@ -36,7 +36,11 @@ module Scrapegraphai
           Scrapegraphai::Models::SearchscraperRetrieveStatusResponse::Variants
         )
       end
-      def retrieve_status(request_id, request_options: {})
+      def retrieve_status(
+        # Unique request identifier
+        request_id,
+        request_options: {}
+      )
       end
 
       # @api private

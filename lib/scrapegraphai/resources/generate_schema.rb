@@ -32,7 +32,8 @@ module Scrapegraphai
       #
       # @overload retrieve(request_id, request_options: {})
       #
-      # @param request_id [String]
+      # @param request_id [String] Unique request identifier
+      #
       # @param request_options [Scrapegraphai::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Scrapegraphai::Models::GenerateSchemaRetrieveResponse::CompletedSchemaGenerationResponse, Scrapegraphai::Models::GenerateSchemaRetrieveResponse::FailedSchemaGenerationResponse]

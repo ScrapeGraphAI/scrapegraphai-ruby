@@ -242,11 +242,7 @@ class Scrapegraphai::Test::UtilFormDataEncodingTest < Minitest::Test
       {strio: StringIO.new("a")} => {"strio" => "a"},
       {strio: Scrapegraphai::FilePart.new("a")} => {"strio" => "a"},
       {pathname: Pathname(__FILE__)} => {"pathname" => -> { _1.read in /^class Scrapegraphai/ }},
-      {pathname: Scrapegraphai::FilePart.new(Pathname(__FILE__))} => {
-        "pathname" => -> {
-          _1.read in /^class Scrapegraphai/
-        }
-      }
+      {pathname: Scrapegraphai::FilePart.new(Pathname(__FILE__))} => {"pathname" => -> { _1.read in /^class Scrapegraphai/ }}
     }
     cases.each do |body, testcase|
       encoded = Scrapegraphai::Internal::Util.encode_content(headers, body)
@@ -324,9 +320,9 @@ class Scrapegraphai::Test::UtilFusedEnumTest < Minitest::Test
   end
 
   def test_external_iteration
-    it = [1, 2, 3].to_enum
-    first = it.next
-    fused = Scrapegraphai::Internal::Util.fused_enum(it, external: true)
+    iter = [1, 2, 3].to_enum
+    first = iter.next
+    fused = Scrapegraphai::Internal::Util.fused_enum(iter, external: true)
 
     assert_equal(1, first)
     assert_equal([2, 3], fused.to_a)
