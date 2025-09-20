@@ -30,7 +30,11 @@ module Scrapegraphai
           Scrapegraphai::Models::GenerateSchemaRetrieveResponse::Variants
         )
       end
-      def retrieve(request_id, request_options: {})
+      def retrieve(
+        # Unique request identifier
+        request_id,
+        request_options: {}
+      )
       end
 
       # @api private

@@ -244,7 +244,7 @@ module Scrapegraphai
         #
         # @return [String]
         def uri_origin(uri)
-          "#{uri.scheme}://#{uri.host}#{uri.port == uri.default_port ? '' : ":#{uri.port}"}"
+          "#{uri.scheme}://#{uri.host}#{":#{uri.port}" unless uri.port == uri.default_port}"
         end
 
         # @api private
@@ -647,7 +647,7 @@ module Scrapegraphai
         #
         # Assumes each chunk in stream has `Encoding::BINARY`.
         #
-        # @param headers [Hash{String=>String}, Net::HTTPHeader]
+        # @param headers [Hash{String=>String}]
         # @param stream [Enumerable<String>]
         # @param suppress_error [Boolean]
         #
